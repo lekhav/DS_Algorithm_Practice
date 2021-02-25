@@ -1,4 +1,4 @@
-** Problem Solving
+Problem Solving
 
 - [ ] Design Basics -4                              
 - [ ] LinkedList -10                    
