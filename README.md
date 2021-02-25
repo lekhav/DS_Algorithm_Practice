@@ -1,4 +1,4 @@
-Problem Solving
+** Problem Solving
 
 - [ ] Design Basics -4                              
 - [ ] LinkedList -10                    
@@ -53,8 +53,7 @@ STRINGS (16)
 - [ ] Find All Anagrams in String (Sliding Window)
 - [ ] Minimum window substring* (Sliding Window)(Hashing)
 - [ ] Implement strStr()——> KNP LPS Array Algorithm -> Pattern Matching
-- [ ] Basic Calculator
-Basic Calculator2, 1, 3
+- [ ] Basic Calculator2, 1, 3
 - [ ] Atoi String to Integer
 - [ ] Integer to English words       =>( Divide & Conquer )
 - [ ] Candy Crush* 
@@ -164,7 +163,7 @@ Patterns: https://leetcode.com/discuss/general-discussion/458695/Dynamic-Program
 - [ ] Broken Calculator
 - [ ] Word Break
 - [ ] Unique Paths *
-—————TAKE A BREAK —————
+
 - [ ] Buy and Sell Stock 1,2,3,*    (Sliding Window Maximum)
 - [ ] Buy and Sell Stock 4
 - [ ] Calculate Max Delete and Earn
@@ -176,7 +175,7 @@ Patterns: https://leetcode.com/discuss/general-discussion/458695/Dynamic-Program
 - [ ] Longest substring Palindrome  🌟 (DP soln, Expand around Center soln)
 - [ ] Find Ugly number II  ✅PRIORITY QUEUE+SET/ ⁉️                                
 - [ ] Burst Baloon
-—————TAKE A BREAK —————
+
 - [ ] Russian Doll Envelopes, Super Egg Drop
 - [ ] Arithmetic Slices, Longest Increasing Subsequence
 - [ ] Repeated DNA Sequences, Wildcard Matching 
@@ -189,7 +188,8 @@ BIT MANIPULATION (3)
 - [ ] Pair of single number
 
 
-—————————————————————————————
+
+
 TREES (13)
 - [ ] Tree Traversals (Iterative & Recursive) -> Inorder, Preorer, PostOrder 
 - [ ] Validate Binary Search Tree
@@ -277,7 +277,8 @@ TRIES (4)
 - [ ] Longest Word in Dictionary
 - [ ] Replace Words
 - [ ] Word Square* (Backtrack + Trie)
-—————————————————————————————
+
+
 
 
 Object Oriented Design
@@ -295,6 +296,7 @@ Object Oriented Design
 - [ ] Unique Word Abbreviation 
 - [ ] Peeking Iterator
 - [ ] Underground Railway System 
+
 
 
 System Design - API Designs
@@ -319,6 +321,7 @@ System Design - API Designs
 Design Facebook
 Design URL Shortening service like TinyURL
 Design Video sharing platform like Youtube
+
 
 
 BASICS -Distributed System Design
