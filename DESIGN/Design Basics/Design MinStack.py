@@ -13,16 +13,18 @@ class MinStack_OPTIMIZED:
         self.minVar = float('inf')
 
     def push(self, x):
-        self.st.append(x)
         if x <= self.minVar:
-            self.minVar = x                
             self.st.append(self.minVar)
-    
+            self.st.append(x)
+            self.minVar = x
+        else:
+            self.st.append(x)
+
     def pop(self):
-        poppedVal = self.st.pop()
-        if poppedVal == self.minVal:
-            self.minVal = self.st.pop()
-    
+        val = self.st.pop()
+        if val == self.minVar:
+            self.minVar = self.st.pop()
+
     def top(self):
         return self.st[-1]
 
