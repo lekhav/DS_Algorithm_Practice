@@ -10,26 +10,25 @@
 class MinStack_OPTIMIZED:
     def __init__(self):
         self.st = []
-        self.minVar = float('inf')
+        self.minVal = float('inf')
 
     def push(self, x):
-        if x <= self.minVar:
-            self.st.append(self.minVar)
-            self.st.append(x)
-            self.minVar = x
-        else:
-            self.st.append(x)
+        if x <= self.minVal:
+            self.st.append(self.minVal)
+            self.minVal = x
+        self.st.append(x)
 
     def pop(self):
-        val = self.st.pop()
-        if val == self.minVar:
-            self.minVar = self.st.pop()
+        poppedVal = self.st.pop()
+        if poppedVal == self.minVal:
+            self.minVal = self.st.pop()
 
     def top(self):
         return self.st[-1]
-
+        
     def getMin(self):
-        return self.minVar
+        return self.minVal
+        
 
 
 
