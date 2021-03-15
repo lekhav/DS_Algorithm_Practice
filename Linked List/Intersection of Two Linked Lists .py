@@ -5,8 +5,7 @@
 #         self.next = None
 
 class Solution:
-    # O(N + M) time
-    # O(N)+O(M) space
+    # O(N+M) time, O(N+M) space
     def getIntersectionNode(self, headA, headB):
         if not headA or not headB:
             return
@@ -17,10 +16,8 @@ class Solution:
         while headB != None:
             if headB in s:
                 return headB
-            else:
-                headB = headB.next
+            headB = headB.next
         return 
-
 
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
         # O(N+M) time
@@ -53,14 +50,4 @@ class Solution:
             headA = headA.next
             headB = headB.next
         return headA
-            
-            
-
-
-
-
-        
-
-    
-        
         

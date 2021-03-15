@@ -5,7 +5,8 @@ class ListNode:
         self.next = next
 
 class Solution:
-    # STACK SOLUTION
+    # 1 STACK SOLUTION
+    # O[2N] time; O[N] space
     def reverseList(self, head):
         if not head:
             return None
@@ -21,7 +22,7 @@ class Solution:
             dummy = dummy.next
         return result.next
 
-    # ITERATIVE APPROACH 
+    # ITERATIVE 3 POINTER APPROACH 
     # O(N) time ; O(1) space
     def reverseList(self, head):
         if not head:
@@ -38,24 +39,6 @@ class Solution:
             fast = fast.next
         current.next = slow
         return current
-
-
-    def reverseList(self, head):
-        if head == None:
-            return None
-        
-        previous = None
-        current = head
-        fast = head
-        
-        while current.next != None:
-            fast = fast.next
-            current.next = previous
-            previous = current
-            current = fast 
-        current.next = previous
-        return current
-            
         
     
     # RECURSIVE APPROACH
@@ -71,12 +54,9 @@ class Solution:
             return head
         
         # LOGIC
-        r = self.reverseLL(head.next)
-        # create the new reversed LINK
-        head.next.next = head
-        # BREAK the previous next LINK
-        head.next = None
-        
+        r = self.reverseLL(head.next)     # recursively for for every node r is created 
+        head.next.next = head             # create the new reversed LINK
+        head.next = None                  # BREAK the previous next LINK
         return r
         
         

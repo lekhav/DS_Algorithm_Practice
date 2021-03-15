@@ -1,6 +1,6 @@
 # Definition for singly-linked list.
 class ListNode:
-    def __init__(self, val):
+    def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
 
@@ -11,8 +11,7 @@ class Solution:
 
         dummy = ListNode(-1)
         dummy.next = head
-        slow = dummy
-        fast = dummy
+        slow, fast = dummy, dummy
         
         for i in range(n):
             fast = fast.next
@@ -29,22 +28,16 @@ class Solution:
             return None
         
         result = head
-        l = 0
+        l = 0                        # find the length
         while head != None:
             head = head.next
             l +=1
-        head = result
-        
-        if l == n:
+
+        head = result               # reset the head and move the head for l-n-1
+        if l == n:    
             return result.next
-        
-        while l-n-1 > 0:
+        while l-n-1 > 0:       
             head = head.next
             l -= 1
-        
-        head.next = head.next.next
+        head.next = head.next.next    # delete the netx node and return result
         return result
-
-
-
-        

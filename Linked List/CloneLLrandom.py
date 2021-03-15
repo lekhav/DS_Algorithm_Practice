@@ -6,41 +6,29 @@ class Node:
         self.next = next
         self.random = random
 
-class Solution1:
-    def __init__(self):
-        self.visitedHash = {}
-    def copyRandomList(self, head):
-        if head == None:
-            return None
-        if head in self.visitedHash:
-            return self.visitedHash[head]
-    
-        node = Node(head.val, None, None)
-        self.visitedHash[head] = node
-        node.next = self.copyRandomList(head.next)
-        node.random = self.copyRandomList(head.random)
-        return node
 
-class Solution2:
+class Solution1_Iterative:
     def __init__(self):
         self.visitedHash = {}
         
     def createClone(self, node):
-        if node != None:
-            if node in self.visitedHash:
-                return self.visitedHash[node]
-            else:
-                self.visitedHash[node] = Node(node.val, None, None)
-                return self.visitedHash[node]
-        return None
+        if node == None:
+            return None
+
+        if node in self.visitedHash:
+            return self.visitedHash[node]
+        self.visitedHash[node] = Node(node.val, None, None)
+        return self.visitedHash[node]
                 
         
     def copyRandomList(self, head):
         if head == None:
             return None
+
         old_node = head
         new_node = Node(old_node.val, None, None)  # create a new node for every node and store
         self.visitedHash[old_node] = new_node 
+
         while old_node != None:
             new_node.random = self.createClone(old_node.random)
             new_node.next = self.createClone(old_node.next)
@@ -49,14 +37,35 @@ class Solution2:
         return self.visitedHash[head]
 
 
-class Solution3:
+
+class Solution1_Recursive:
+    
+    # O[N] time; O[N] space
+    def __init__(self):
+        self.visitedHash = {}            # { OriginalNode: ClonedNode }
+        
+    def copyRandomList(self, head):
+        if head == None:
+            return None
+        if head in self.visitedHash:
+            return self.visitedHash[head]
+
+        node = Node(head.val, None, None)
+        self.visitedHash[head] = node
+        node.next = self.copyRandomList(head.next)
+        node.random = self.copyRandomList(head.random)
+        return node
+
+
+
+class Solution2:
     # O[2N] Time
     # O[1] Space
     def copyRandomList(self, head):
         if head == None:
             return None
         
-        # Insert a cloned node next to every Original Node
+        # Insert a cloned node next to every Original Node with its val
         old_ll = head
         while old_ll != None:
             new_ll = Node(old_ll.val, None, None)
@@ -67,7 +76,7 @@ class Solution3:
         # assign the random node for the Cloned Nodes
         ptr = head
         while ptr != None:
-            ptr.next.random = ptr.random.next if ptr.random else None
+            ptr.next.random = ptr.random.next if ptr.random else None #***********
             ptr = ptr.next.next
 
         # Un-Weiving the LL to the Original LL and Cloned LL
@@ -80,6 +89,10 @@ class Solution3:
             new_ll = new_ll.next
         return result
         
+
+
+
+
 
 
 

@@ -1,3 +1,31 @@
+## Problem : LRU Cache(https://leetcode.com/problems/lru-cache/)
+
+# Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: get and put.
+
+# get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.
+# put(key, value) - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item.
+
+# The cache is initialized with a positive capacity.
+
+# Follow up:
+# Could you do both operations in O(1) time complexity?
+
+# Example:
+
+# LRUCache cache = new LRUCache( 2 /* capacity */ );
+
+# cache.put(1, 1);
+# cache.put(2, 2);
+# cache.get(1);       // returns 1
+# cache.put(3, 3);    // evicts key 2
+# cache.get(2);       // returns -1 (not found)
+# cache.put(4, 4);    // evicts key 1
+# cache.get(1);       // returns -1 (not found)
+# cache.get(3);       // returns 3
+# cache.get(4);       // returns 4
+
+
+# ————————————————————————————————————————————————————————————————————————————————————————————————
 class DLLnode:
     def __init__(self, key, val):
         self.key = key
@@ -12,7 +40,7 @@ class LRUCache:
         self.capacity = capacity
         self.size = 0
         
-        # cache ===> { KEY : DLL(order of elements accessed, LRU at Tail)}
+        # cache ===> { KEY : DLL (order of elements accessed, LRU at Tail) }
         # storing every Node to its Key in cache HashMap
         # Initiate a DLL to maintain the order of all Keys Accessed, LRU near Tail
         
@@ -48,17 +76,20 @@ class LRUCache:
             # we accessed the node => delete the node from DLL and add it to Head of DLL
             self.deleteNode(node)
             self.addToHead(node)
+
         else:
             node = DLLnode(key, value)
-            if self.size < self.capacity:
-                self.cache[key] = node
-                self.addToHead(node)
-                self.size += 1
-            elif self.size == self.capacity:
+
+            # REDUCE SIZE IF CAPACITY REACHED TO CREATE SPACE BEFORE ADDING THE NEW NODE
+            if self.size == self.capacity:     
                 del self.cache[self.tail.previous.key]
                 self.deleteNode(self.tail.previous)
-                self.cache[key] = node
-                self.addToHead(node)
+                self.size -= 1 
+
+            self.cache[key] = node
+            self.addToHead(node)
+            self.size += 1
+            
         
 
 

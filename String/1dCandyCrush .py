@@ -1,9 +1,8 @@
 class Solution:
+    # CHECK THE CODE, NOT PASSING ALL TESTCASES ********
     def candyCrush(self, s):
         st = []
-        ans = ''
         i =0
-
         while i < len(s):
             if st == []:
                 st.append((s[i], 1))
@@ -26,7 +25,9 @@ class Solution:
                 print("At i == ", i, "Stack is ", st)
                 i += 1
         
+
         print("Stack looks like: ",st)
+        ans = ''
         while st != []:    
             a, b = st.pop(0)
             for i in range(b):
@@ -36,6 +37,6 @@ class Solution:
         return ans         
 
 obj = Solution()
-print(obj.candyCrush(s='aabbacc'))
+print(obj.candyCrush(s='aaa'))
                 
 

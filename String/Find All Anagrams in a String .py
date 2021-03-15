@@ -31,7 +31,7 @@ class Solution:
                     if d[outgoing_ch] == 1:
                         match -= 1
                     
-            # 4) CHECK FOR ANAGRAM MATCH
+            # 4) CHECK FOR ANAGRAM MATCH IS MADE
             if match == len(d):
                 result.append(i-len(p)+1)
         return result

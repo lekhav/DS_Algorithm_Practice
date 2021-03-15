@@ -6,15 +6,14 @@ class ListNode:
 
 
 class Solution:
-    # time : O(N*K), N: avg.no.of.nodes/linkedlist, K: no.of.linkedlist
-    # space: O(N) to store result LL
+    # Time : O(N*K), N: avg.no.of.nodes/linkedlist, K: no.of.linkedlist
+    # Space: O(N) to store result LL
 
-    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+    def mergeKLists(self, lists):
         if lists == None or len(lists) == 0:
             return None
         
-        merged = ListNode(float('-inf'))
-        result = merged
+        result = merged = ListNode(float('-inf'))
         for head in lists:
             merged = self.mergeTwoLists(merged, head)
         return result.next
@@ -25,17 +24,16 @@ class Solution:
         if l1 == None and l2 == None:
             return None
 
-        dummy = ListNode(0)
-        result = dummy
+        result = dummy = ListNode(0)
         while l1 != None and l2 != None:
             if l1.val < l2.val:
                 dummy.next = l1
                 l1 = l1.next
-                dummy = dummy.next
             else:
                 dummy.next= l2
                 l2 = l2.next
-                dummy = dummy.next
+            dummy = dummy.next
+
         if l1 != None:
             dummy.next = l1
             l1 = l1.next

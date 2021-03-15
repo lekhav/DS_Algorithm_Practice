@@ -72,7 +72,6 @@ class LFUCache:
     def put(self, key, val):
         if self.capacity == 0:
             return 
-        print('put')
         
         # CASE 1: KEY already in nodeMap
         if key in self.nodeMap:
@@ -81,7 +80,6 @@ class LFUCache:
             self.updateNode(node)
             
         else:
-            
             # CASE 2: ONLY IF CAPACITY REACHED, Create SPACE
             if self.size == self.capacity:
                 oldDLL = self.freqMap[self.minFreq]

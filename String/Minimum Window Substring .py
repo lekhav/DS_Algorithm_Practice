@@ -18,20 +18,18 @@ class Solution:
         ans = (float('inf'), None, None)
         right, left = 0, 0
         while right < len(s):
-            # ADD THE INCOMING CHARACTER TO SUB-STRING WINDOW COUNTER
+            # ADD THE INCOMING CHARACTER TO SUB-STRING WINDOW COUNTER AND CHECK IF CH COUNT IS MATCHED
             if s[right] not in substr_Window_count:
                 substr_Window_count[s[right]] = 1
             else:
                 substr_Window_count[s[right]] += 1
-                
             if s[right] in d and substr_Window_count[s[right]] == d[s[right]]:
                 match += 1
                 
-            # 3) CHECKING MATCH & UPDATING THE LENGTH & FORMING OTHER SUB-STRING WINDOWS
+            # 3) CHECKING MATCH & UPDATING THE LENGTH & TRY FORMING OTHER SUB-STRING WINDOWS BY INCREASING LEFT
             while left <= right and match == required_match:
                 if right+1 -left < ans[0]:
                     ans = (right+1-left, left, right)
-                
                 # MOVING THE LEFT POINTER TO TRY OTHER WINDOW COMBINATIONS
                 substr_Window_count[s[left]] -= 1
                 if s[left] in d and s[left] in substr_Window_count and substr_Window_count[s[left]] < d[s[left]]:
@@ -39,8 +37,4 @@ class Solution:
                 left += 1
                 
             right += 1
-        
         return "" if ans[0] == float('inf') else s[ans[1]: ans[2]+1]
-                
-                    
-        

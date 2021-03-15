@@ -1,6 +1,6 @@
 class Solution:
-    # O[ST] Time
-    # O[T] Space
+    # O[M+N] Time
+    # O[26] Space
     def customSortString(self, S, T):
         if T == '':
             return ''

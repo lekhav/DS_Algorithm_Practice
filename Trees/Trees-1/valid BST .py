@@ -12,6 +12,7 @@ class TreeNode:
         self.key = key
         self.left = None
         self.right = None
+
 class Solution:
     def isValidBST(self, root):
         if root == None:
@@ -25,7 +26,6 @@ class Solution:
             return False
         if maxx != None and root.val >= maxx:
             return False
-
         # LOGIC
         return self.helper(root.left, minn, root.val) and self.helper(root.right, root.val, maxx)
 
