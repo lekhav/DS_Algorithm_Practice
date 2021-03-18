@@ -62,13 +62,13 @@ class Solution1_Recursive:
 
 class Solution2:
     # InterLeaving the Cloned nodes after every node,
-    # O[2N] Time
+    # O[3N] Time
     # O[1] Space
     def copyRandomList(self, head):
         if head == None:
             return None
         
-        # 1) Insert a Cloned node next to every Original Node with its val
+        # 1) Iterate over the original node, Insert a Cloned node next to every Original Node with its val
         # 2) Assign the Next pointer for the cloned node
         old_ll = head
         while old_ll != None:
@@ -83,7 +83,7 @@ class Solution2:
             ptr.next.random = ptr.random.next if ptr.random else None #***********
             ptr = ptr.next.next
 
-        # Un-Weiving the LL to the Original LL and Cloned LL
+        # Iterate from the begining, Un-Weiving the LL to the Original LL and Cloned LL
         old_ll = head
         result = new_ll = head.next
         while old_ll != None:
