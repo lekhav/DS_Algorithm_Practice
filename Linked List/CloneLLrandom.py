@@ -68,16 +68,16 @@ class Solution2:
         if head == None:
             return None
         
-        # Insert a Cloned node next to every Original Node with its val
+        # 1) Insert a Cloned node next to every Original Node with its val
+        # 2) Assign the Next pointer for the cloned node
         old_ll = head
         while old_ll != None:
             new_ll = Node(old_ll.val, None, None)
-            # Assign the Next pointer
             new_ll.next = old_ll.next
             old_ll.next = new_ll
             old_ll = new_ll.next
 
-        # Assign the Random pointer
+        # 3) Iterate from the begining, Assign the Random pointer for the cloned nodes
         ptr = head
         while ptr != None:
             ptr.next.random = ptr.random.next if ptr.random else None #***********
