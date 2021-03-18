@@ -40,6 +40,7 @@ class Solution:
         
         stack = []
         while root != None or stack != []:
+            
             while root != None:
                 stack.append([root, depth])
                 if root.left != None:

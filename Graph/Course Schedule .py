@@ -1,6 +1,7 @@
 class Solution:
     def canFinish(self, numCourses, prerequisites):
-        indegrees = [0]*numCourses    # represents no.of prereq to be completed for each course 
+
+        indegrees = [0] * numCourses    # represents no.of prereq to be completed for each course 
         adjacency_d = {}              # { course: [dependents] }
         q = []
         
