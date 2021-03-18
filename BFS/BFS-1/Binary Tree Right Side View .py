@@ -35,20 +35,24 @@ class Solution:
     def rightSideView(self, root):
         if root == None:
             return []
-        self.rightView = []
-        self.helper(root, 0)
-        return self.rightView
-
-    def helper(self, root, depth):
+        
+        # DFS Approach
+        self.result = [root.val]
+        self.dfs(root, 1)
+        return self.result
+    
+    def dfs(self, root, depth):
         # BASE CASE
         if root == None:
             return
-        if depth == len(self.rightView):
-            self.rightView.append(root.val)
-
+        
         # LOGIC
-        right = self.helper(root.right, depth+1)
-        left = self.helper(root.left, depth+1)
+        if depth > len(self.result):
+            self.result.append(root.val)
+        if root.right:
+            self.dfs(root.right, depth+1)
+        if root.left:
+            self.dfs(root.left, depth+1)
 
 
 

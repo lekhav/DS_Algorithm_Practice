@@ -34,7 +34,7 @@ class Solution:
 
     # ============================================================================================================
 
-    # ITERATIVE DFSSOLUTION
+    # ITERATIVE DFS SOLUTION
     # time : O(N)
     # space : O(H) 
 
@@ -48,11 +48,13 @@ class Solution:
         
         while st != []:
             node, temp, summ = st.pop()
+            # BASE CASE
             if node.left == None and node.right == None:
                 if summ == target:
                     result.append(temp)
                 continue
             
+            # LOGIC
             if node.left:
                 st.append((node.left, temp+[node.left.val], summ + node.left.val))
             if node.right:

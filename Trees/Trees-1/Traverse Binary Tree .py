@@ -92,11 +92,10 @@ class Postorder:
         if root == None:
             return []
         
+        result = []
         st1 = []
         st2 = []
-        result = []
         st1.append(root)
-        
         while st1 != []:
             root = st1.pop()
             if root.left:
