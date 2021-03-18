@@ -43,20 +43,25 @@ class Solution1_Iterative:
 class Solution1_Recursive:
     
     # O[N] time; O[N] space
-    def __init__(self):
-        self.visitedHash = {}            # { OriginalNode: ClonedNode }
-        
+         
     def copyRandomList(self, head):
         if head == None:
             return None
-        if head in self.visitedHash:
-            return self.visitedHash[head]
-
-        node = Node(head.val, None, None)
-        self.visitedHash[head] = node
-        node.next = self.copyRandomList(head.next)
-        node.random = self.copyRandomList(head.random)
-        return node
+        self.visitedMap = {}                   # { OriginalNode: ClonedNode }
+        return self.createClone(head)
+    
+    def createClone(self, head):
+        if head == None:
+            return None
+        
+        if head in self.visitedMap:
+            return self.visitedMap[head]
+        else:
+            cloned_node = Node(head.val)
+            self.visitedMap[head] = cloned_node
+            cloned_node.next = self.createClone(head.next)
+            cloned_node.random = self.createClone(head.random)
+            return cloned_node
 
 
 
@@ -72,7 +77,7 @@ class Solution2:
         # 2) Assign the Next pointer for the cloned node
         old_ll = head
         while old_ll != None:
-            new_ll = Node(old_ll.val, None, None)
+            new_ll = Node(old_ll.val)
             new_ll.next = old_ll.next
             old_ll.next = new_ll
             old_ll = new_ll.next
@@ -80,7 +85,7 @@ class Solution2:
         # 3) Iterate from the begining, Assign the Random pointer for the cloned nodes
         ptr = head
         while ptr != None:
-            ptr.next.random = ptr.random.next if ptr.random else None #***********
+            ptr.next.random = ptr.random.next if ptr.random else None             #***********
             ptr = ptr.next.next
 
         # Iterate from the begining, Un-Weiving the LL to the Original LL and Cloned LL
