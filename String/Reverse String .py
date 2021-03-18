@@ -2,12 +2,11 @@ class Solution:
     def reverseString1(self, s):
         # O(2N) time; O(N) space
         # Append all characters to a stack; Pop them and add them to result
-        res = []
+        res = []           # EXTRA SPACE SOLUTION
         l = len(s)
         for i in range(l):
-            s.append(s.pop())
-        while s != []:  
             res.append(s.pop())
+
         return res
 
 

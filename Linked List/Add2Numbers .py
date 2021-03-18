@@ -15,7 +15,7 @@ class Solution:
                 l1 = l1.next
             if l2 != None:
                 carry += l2.val
-                l2 = l2.next
+                l2 = l2.nextA
             current.next = ListNode(carry%10)
             carry = carry//10
             current = current.next

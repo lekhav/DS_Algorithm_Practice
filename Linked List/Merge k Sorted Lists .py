@@ -36,10 +36,9 @@ class Solution:
 
         if l1 != None:
             dummy.next = l1
-            l1 = l1.next
         else:
             dummy.next = l2
-            l2 = l2.next
+            
         return result.next
     
 
@@ -59,22 +58,19 @@ class SolutionOPTIMIZED:
         if lists == []:
             return None
         
-        # Maintain a MinHeap of all the 1t nodes in the Lists
+        # Maintain a MinHeap of all the 1t nodes in the Lists        
         minHeap = []
+        heapq.heapify(minHeap)
         for i in range(len(lists)):
             if lists[i] != None:
-                heapq.heappush(minHeap, (lists[i].val, i, lists[i])) 
+                heapq.heappush(minHeap, (lists[i].val, i, lists[i]))
         
-        result = current = ListNode(-1)
-        while minHeap:
+        result = merged = ListNode(-1)
+        while minHeap != []:
             poppedVal, index, poppedNode = heapq.heappop(minHeap)
-
-            current.next = ListNode(poppedVal)
-            current = current.next
-            
-            node = poppedNode.next
-            if node != None:
-                heapq.heappush(minHeap, (node.val, index, node))
-             
-        return result.next  
-        
+            merged.next = poppedNode
+            merged = merged.next
+            nextNode = poppedNode.next
+            if nextNode != None:
+                heapq.heappush(minHeap, (nextNode.val, index, nextNode))
+        return result.next

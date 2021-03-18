@@ -17,14 +17,15 @@ class Solution:
             if headB in s:
                 return headB
             headB = headB.next
-        return 
+ 
 
-    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+    def getIntersectionNode(self, headA, headB):
         # O(N+M) time
         # O(1) space
         if headA == None or headB == None:
             return 
 
+        # FIND THE LENGTH OF THE TWO LISTS
         lenA, lenB = 0, 0
         temp = headA
         while temp != None:
@@ -35,6 +36,7 @@ class Solution:
             lenB += 1
             temp = temp.next
         
+        # MOVE THE STARTING POINTER ON THE LONGER LIST BY, lenA - lenB
         if lenA - lenB > 0:
             diff = lenA - lenB
             while diff != 0:
