@@ -1,8 +1,8 @@
 class Solution:
     def canFinish(self, numCourses, prerequisites):
 
-        indegrees = [0] * numCourses    # represents no.of prereq to be completed for each course 
-        adjacency_d = {}              # { course: [dependents] }
+        indegrees = [0] * numCourses    # INDEGREES ARRAY, represents no.of prereq to be completed for each course 
+        adjacency_d = {}                # DEPENDECY GRAPH, { course: [dependents] }
         q = []
         
         # for every edge, build indegrees and adj_map at the same time as N is GIVEN
