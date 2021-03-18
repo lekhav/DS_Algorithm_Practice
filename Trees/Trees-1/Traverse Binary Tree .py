@@ -5,7 +5,7 @@ class TreeNode:
         self.left = None
         self.right = None
 
-class Solution:
+class Inorder:
 
     # Iterative Solution
     # time: O(N)
@@ -14,7 +14,7 @@ class Solution:
         if root == None:
             return []
 
-        stack, ans = [], []
+        stack, ans = [], []             # only in Inorder, we will not add root to st at the start
         while root != None or stack != []:
             while root != None:
                 stack.append(root)
@@ -42,7 +42,7 @@ class Solution:
             self.inorder(root.right)
 
 # ===============================================================================
-
+class Preorder:
     # Iterative Solution --> 1 STACK APPROACH
     # time: O(N)
     # space: O(2N) for 2 arrays 
@@ -84,6 +84,7 @@ class Solution:
 
 
 # ===============================================================================
+class Postorder:
     # Iterative Solution --> 2 STACK APPROACH
     # time : O(N)
     # space : O(N), WORST CASE: stack2 holds all the node

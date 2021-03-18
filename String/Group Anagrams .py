@@ -16,9 +16,10 @@ class Solution1:
                 d[hashVal] = [word]
             else:
                 d[hashVal].append(word)
+
         result = []
         for key in d:
-            result.append(d[key])
+            result.append( d[key] )
         return result 
                 
 
@@ -39,5 +40,5 @@ class Solution2:
         
         res = []
         for key in d:
-            res.append(d[key])
+            res.append( d[key] )
         return res

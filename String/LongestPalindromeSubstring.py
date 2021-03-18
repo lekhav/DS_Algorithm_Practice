@@ -9,7 +9,7 @@ class Solution:
         res = ""
         # find all substrings,
         for i in range(len(s)):
-            for j in range(len(s)):
+            for j in range(i, len(s)):
                 if self.isPalindrome(s, i, j) and len(s[i:j+1]) > len(res) :
                     res = s[i:j+1]
         return res
